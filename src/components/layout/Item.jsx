@@ -14,7 +14,7 @@ export const Item = ({ item }) => {
             <p className="card-text"><i className="bi bi-currency-dollar me-1"></i>{item.price}</p>
             <p className="card-text"><i className="bi bi-star-fill text-warning me-1"></i>{item.rating}</p>
             <button type="button" className="btn btn-primary me-1"><i className="bi bi-cart"></i></button>
-            <button type="button" className="btn btn-secondary me-1"><i className="bi bi-heart"></i></button>
+            {/*<button type="button" className="btn btn-secondary me-1"><i className="bi bi-heart"></i></button>*/}
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
 import React from 'react'
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
+import { ItemsPage } from '../components/pages/ItemsPage';
+import { ItemPage } from '../components/pages/ItemPage';
 
 export const Routing = () => {
 
@@ -11,20 +13,24 @@ export const Routing = () => {
 
             <div className='body'>
                 <Routes>
-                    <Route path='/' element={<Home user={user} />} />
+
+                    <Route path='/' element={<ItemsPage />} />
                     <Route path='/home' element={<Navigate to='/' />} />
+                    {/*
+                    <Route path='/login' element={<Login user={user} setUser={setUser} />} />
+                    <Route path='/register' element={<Register />} />
+                    */}
+                    <Route path='/products/:page' element={<ItemPage />} />
 
-                    <Route path='/login' element={Object.keys(user).length > 0 ? <Navigate replace to='/home' /> : <Login user={user} setUser={setUser} />} />
-                    <Route path='/register' element={Object.keys(user).length > 0 ? <Navigate replace to='/home' /> : <Register />} />
+                    {/*<Route path='/product/:id' element={<Profile />} />
 
-                    <Route path='/profile/:user' element={<Profile />} />
-                    <Route path='/profile/:user/:page' element={<Profile />} />
                     <Route path='*' element={<NotFound />} />
+                    */}
                 </Routes>
             </div>
 
             <div className='footer'>
-                 {/*<Footer />*/}
+                {/*<Footer />*/}
             </div>
         </BrowserRouter>
     )
