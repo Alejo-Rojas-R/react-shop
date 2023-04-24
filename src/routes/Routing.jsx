@@ -21,7 +21,7 @@ export const Routing = () => {
                     <Route path='/login' element={<Login user={user} setUser={setUser} />} />
                     <Route path='/register' element={<Register />} />
                     */}
-                    <Route path='/product/:page' element={<ItemPage />} />
+                    <Route path='/product/:id' element={<ItemPage />} />
 
                     <Route path='/search/:category?/:query' element={<SearchPage />} />
                     {/*

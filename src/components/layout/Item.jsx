@@ -1,26 +1,38 @@
 import React from 'react'
 import { RatingStars } from './RatingStars'
+import { NavLink } from 'react-router-dom'
+import { Card, Button, Row, Col } from "react-bootstrap";
 
 export const Item = ({ item }) => {
 
   return (
-    <div className="card mb-3">
-      <div className="row no-gutters">
-        <div className="col-md-4">
-          <img src={item.thumbnail} className="card-img m-3 img-responsive" alt="Product Thumbnail" />
-        </div>
-        <div className="col-md-8">
-          <div className="card-body">
-            <div className="d-flex align-items-center mb-2">
-              <h5 className="card-title mb-0">{item.title}</h5>
-              <button type="button" className="btn btn-primary ms-auto"><i className="bi bi-cart"></i></button>
-              {/*<button type="button" className="btn btn-secondary me-1"><i className="bi bi-heart"></i></button>*/}
+    <Card>
+      <Card.Img variant="top" src={item.thumbnail} alt="Product Image" />
+      <Card.Body>
+        <Card.Title><NavLink to={`/product/${item.id}`}>{item.title}</NavLink></Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">
+          Product Subtitle
+        </Card.Subtitle>
+        <Row>
+          <Col>
+            <Card.Text><i className="bi bi-currency-dollar me-1"></i>{item.price}</Card.Text>
+          </Col>
+          <Col>
+            <div className="d-flex align-items-center justify-content-end">
+              <RatingStars rating={item.rating} />
             </div>
-            <p className="card-text mb-1"><i className="bi bi-currency-dollar me-1"></i>{item.price}</p>
-            <p className="card-text mb-0"><RatingStars rating={item.rating}/></p>
-          </div>
-        </div>
-      </div>
-    </div>
+          </Col>
+        </Row>
+        <Card.Text>
+          {item.description}
+        </Card.Text>
+        <Button variant="primary" className="me-2">
+          Add to Cart <i className="bi bi-cart-plus"></i>
+        </Button>
+        <Button variant="secondary">
+          Save to Profile <i className="bi bi-heart"></i>
+        </Button>
+      </Card.Body>
+    </Card>
   )
 }

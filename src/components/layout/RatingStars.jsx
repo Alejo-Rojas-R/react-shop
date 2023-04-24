@@ -11,7 +11,7 @@ export const RatingStars = ({ rating }) => {
                     <i key={index} className={`bi bi-star-fill me-1 ${(index < Math.round(rating)) ? 'text-warning' : 'text-muted opacity-25'}`}></i>
                 ))
             }
-            {rating}
+            <div className="opacity-75">{rating}</div>
         </>
     );
 }
