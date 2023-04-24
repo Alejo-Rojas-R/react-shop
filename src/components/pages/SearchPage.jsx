@@ -21,14 +21,13 @@ export const SearchPage = () => {
       <Header />
       <div className="container-fluid mt-3">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-2">
 
           </div>
-          <div className="col-md-6">
-
+          <div className="col-md-8">
             <Items data={data} />
           </div>
-          <div className="col-md-3">
+          <div className="col-md-2">
             <p>Your cart is empty.</p>
           </div>
         </div>

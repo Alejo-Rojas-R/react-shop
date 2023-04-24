@@ -7,19 +7,16 @@ export const Items = ({ data }) => {
 
   return (
     <>
-      {
-        data.loading ?
-          <div>Loading...</div>
-          :
-          <div>
-            {
-              products.map((item) => {
-                return (
-                  <Item key={item.id} item={item} />
-                )
-              })
-            }
-          </div>
+      {data.loading ?
+        <div>Loading...</div>
+        :
+        <div>
+          {
+            products.map((item, index) => (
+              <Item key={item.id} item={item} />
+            ))
+          }
+        </div>
       }
     </>
   )
