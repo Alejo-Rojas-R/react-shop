@@ -6,7 +6,7 @@ export const Item = ({ item }) => {
     <div className="card mb-3">
       <div className="row no-gutters">
         <div className="col-md-4">
-          <img src={item.thumbnail} className="card-img m-3" alt="Product Thumbnail" />
+          <img src={item.thumbnail} className="card-img m-3 img-responsive" alt="Product Thumbnail" />
         </div>
         <div className="col-md-8">
           <div className="card-body">

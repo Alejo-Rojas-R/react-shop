@@ -1,7 +1,8 @@
 import React from 'react'
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
-import { ItemsPage } from '../components/pages/ItemsPage';
 import { ItemPage } from '../components/pages/ItemPage';
+import { HomePage } from '../components/pages/HomePage';
+import { SearchPage } from '../components/pages/SearchPage';
 
 export const Routing = () => {
 
@@ -14,16 +15,16 @@ export const Routing = () => {
             <div className='body'>
                 <Routes>
 
-                    <Route path='/' element={<ItemsPage />} />
+                    <Route path='/' element={<HomePage />} />
                     <Route path='/home' element={<Navigate to='/' />} />
                     {/*
                     <Route path='/login' element={<Login user={user} setUser={setUser} />} />
                     <Route path='/register' element={<Register />} />
                     */}
-                    <Route path='/products/:page' element={<ItemPage />} />
+                    <Route path='/product/:page' element={<ItemPage />} />
 
-                    {/*<Route path='/product/:id' element={<Profile />} />
-
+                    <Route path='/search/:category?/:query' element={<SearchPage />} />
+                    {/*
                     <Route path='*' element={<NotFound />} />
                     */}
                 </Routes>
