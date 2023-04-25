@@ -1,9 +1,10 @@
 import React from 'react'
-import { Container, Row, Col, Image, Button, Carousel, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { Header } from '../layout/Header';
 import { RatingStars } from '../layout/RatingStars';
+import { ImagesCarousel } from '../layout/ImagesCarousel';
 
 export const ItemPage = () => {
 
@@ -20,27 +21,22 @@ export const ItemPage = () => {
     );
   }
 
+  const appliedDiscount = data.price - (data.price * (data.discountPercentage / 100));
+
   return (
     <>
       <Header />
       <Container className="my-5">
         <Row>
           <Col md={6}>
-            <Carousel>
-              {data.images.map((item, index) => (
-                <Carousel.Item key={index}>
-                  <img className="d-block w-100" src={item} alt={`slide-${index}`} />
-                </Carousel.Item>
-              ))}
-              <Image src={data.images} fluid />
-            </Carousel>
+            <ImagesCarousel images={data.images} />
           </Col>
           <Col md={6}>
             <h1>{data.title}</h1>
             <hr />
             <span className="opacity-50"><s>${data.price}</s></span>
             <div className="d-flex align-items-center">
-              <h3 className="me-1">${data.price}</h3>
+              <h3 className="me-2">${appliedDiscount}</h3>
               <h6 className="text-danger">{data.discountPercentage}% OFF</h6>
             </div>
             <div className="d-flex align-items-center">
