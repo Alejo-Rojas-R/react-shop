@@ -8,7 +8,7 @@ export const SearchPage = () => {
 
   const { query, category } = useParams();
 
-  let itemsUrl = 'https://dummyjson.com/products?limit=10&skip=10';
+  let itemsUrl = 'https://dummyjson.com/products';
 
   itemsUrl = query ? `https://dummyjson.com/products/search?q=${query}` : itemsUrl;
 
