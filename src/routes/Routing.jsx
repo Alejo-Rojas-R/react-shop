@@ -23,7 +23,7 @@ export const Routing = () => {
                     */}
                     <Route path='/product/:id' element={<ItemPage />} />
 
-                    <Route path='/search/:category?/:query' element={<SearchPage />} />
+                    <Route path='/search' element={<SearchPage />} />
                     {/*
                     <Route path='*' element={<NotFound />} />
                     */}

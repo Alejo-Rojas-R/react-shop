@@ -22,7 +22,7 @@ export const CategoriesList = () => {
             <Stack direction='horizontal' className='d-flex flex-wrap justify-content-center' gap={2}>
                 {data.map((item, index) => (
                     <Badge key={index} pill bg="light" text="black" className='shadow-sm p-2 bg-white rounded'>
-                        <NavLink to={`search/category/${item}`} className='link-underline link-underline-opacity-0 link-underline-opacity-75-hover'>{item}</NavLink>
+                        <NavLink to={`search?category=${item}`} className='link-underline link-underline-opacity-0 link-underline-opacity-75-hover'>{item}</NavLink>
                     </Badge>
                 ))}
             </Stack>

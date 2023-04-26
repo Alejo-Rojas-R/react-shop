@@ -13,7 +13,7 @@ export const SearchInput = () => {
     return (
         <div className="d-flex justify-content-center">
             <input className="form-control me-2" type="search" placeholder="Search" ref={refQueryInput} onChange={handleWriteSearch} />
-            <NavLink className={`btn btn-primary ${query === "" ? "disabled" : ""}`} to={`/search/${query}`}>Search</NavLink>
+            <NavLink className={`btn btn-primary ${query === "" ? "disabled" : ""}`} to={`/search?query=${query}`}>Search</NavLink>
         </div>
     )
 }

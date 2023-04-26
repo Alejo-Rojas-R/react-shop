@@ -10,6 +10,8 @@ export const useFetch = (url) => {
     }, [url]);
 
     const getData = async () => {
+        setLoading(true);
+
         const resp = await fetch(url);
         const data = await resp.json();
 

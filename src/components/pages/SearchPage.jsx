@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Items } from '../layout/Items'
 import { useFetch } from '../../hooks/useFetch'
 import { Header } from '../layout/Header';
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 export const SearchPage = () => {
+  const [params, setParams] = useSearchParams();
 
-  const { query, category } = useParams();
+  const category = params.get('category') ?? '';
+  const query = params.get('query') ?? '';
+  const page = parseInt(params.get('page') ?? 1);
 
   let itemsUrl = 'https://dummyjson.com/products';
-
-  itemsUrl = query ? `https://dummyjson.com/products/search?q=${query}` : itemsUrl;
-
-  itemsUrl = category ? `https://dummyjson.com/products/category/${query}` : itemsUrl;
+  itemsUrl += (query !== '') ? `/search?q=${query}&limit=9&skip=${(page - 1) * 9}` : '';
+  itemsUrl += (category !== '') ? `/category/${category}?limit=9&skip=${(page - 1) * 9}` : '';
 
   const data = useFetch(itemsUrl);
 
