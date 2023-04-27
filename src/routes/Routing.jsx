@@ -3,6 +3,7 @@ import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 import { ItemPage } from '../components/pages/ItemPage';
 import { HomePage } from '../components/pages/HomePage';
 import { SearchPage } from '../components/pages/SearchPage';
+import { Footer } from '../components/layout/Footer';
 
 export const Routing = () => {
 

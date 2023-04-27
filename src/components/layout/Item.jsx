@@ -3,33 +3,43 @@ import { RatingStars } from './RatingStars'
 import { NavLink } from 'react-router-dom'
 import { Card, Button, Row, Col } from 'react-bootstrap';
 
+
 export const Item = ({ item }) => {
 
+  const handleToCart = (e) => {
+    e.preventDefault()
+  }
+
+  const handleLike = (e) => {
+    e.preventDefault()
+  }
+
   return (
-    <Card>
-      <Card.Img variant='top' className='cover' src={item.thumbnail} alt='Product Image' />
-      <Card.Body>
-        <Card.Title><NavLink to={`/product/${item.id}`}>{item.title}</NavLink></Card.Title>
-        <Row>
-          <Col>
+    <Card className='p-2 border-0'>
+      <Card className='item__item'>
+        <NavLink to={`/product/${item.id}`} className='text-decoration-none link-dark'>
+          <Card.Img variant='top' className='cover' src={item.thumbnail} alt='Product Image' />
+
+          <Card.Body>
+            <Card.Title>{item.title}</Card.Title>
             <Card.Text>${item.price}</Card.Text>
-          </Col>
-          <Col>
-            <div className='d-flex align-items-center justify-content-end'>
-              <RatingStars rating={item.rating} showRating={false} />
-            </div>
-          </Col>
-        </Row>
-        <Card.Text className='text-truncate'>
-          {item.description}
-        </Card.Text>
-        <Button variant='primary' className='me-2'>
-          Add to Cart <i className='bi bi-cart-plus'></i>
-        </Button>
-        <Button variant='secondary'>
-          Save to Profile <i className='bi bi-heart'></i>
-        </Button>
-      </Card.Body>
+            <Card.Text>
+              {item.description}
+            </Card.Text>
+            <Row>
+              <Col>
+                <i className='bi bi-cart-plus-fill text-primary me-1' onClick={handleToCart}></i>
+                <i className='bi bi-heart-fill text-danger' onClick={handleLike}></i>
+              </Col>
+              <Col>
+                <div className='d-flex align-items-center justify-content-end'>
+                  <RatingStars rating={item.rating} showRating={false} />
+                </div>
+              </Col>
+            </Row>
+          </Card.Body>
+        </NavLink>
+      </Card>
     </Card>
   )
 }

@@ -3,6 +3,7 @@ import { Items } from '../layout/Items'
 import { useFetch } from '../../hooks/useFetch'
 import { Header } from '../layout/Header';
 import { useSearchParams } from 'react-router-dom';
+import { Footer } from '../layout/Footer';
 
 export const SearchPage = () => {
   const [params, setParams] = useSearchParams();
@@ -33,6 +34,7 @@ export const SearchPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

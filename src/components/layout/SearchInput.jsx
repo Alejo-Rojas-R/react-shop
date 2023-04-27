@@ -1,19 +1,26 @@
 import React, { useRef, useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const SearchInput = () => {
 
     const refQueryInput = useRef();
     const [query, setQuery] = useState('');
+    const navigate  = useNavigate();
+
 
     const handleWriteSearch = () => {
         setQuery(refQueryInput.current.value);
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate(`/search?query=${query}`);
+    }
+
     return (
-        <div className="d-flex justify-content-center">
+        <form onSubmit={handleSubmit} className="d-flex justify-content-center">
             <input className="form-control me-2" type="search" placeholder="Search" ref={refQueryInput} onChange={handleWriteSearch} />
-            <NavLink className={`btn btn-primary ${query === "" ? "disabled" : ""}`} to={`/search?query=${query}`}>Search</NavLink>
-        </div>
+            <button type='submit' className={`btn btn-primary ${query === "" ? "disabled" : ""}`} to={`/search?query=${query}`}>Search</button>
+        </form>
     )
 }

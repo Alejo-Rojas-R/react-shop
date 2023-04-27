@@ -3,7 +3,7 @@ import { Item } from './Item'
 import { Container, Spinner, Row } from 'react-bootstrap';
 import { ResultsPagination } from './ResultsPagination';
 
-export const Items = ({ data, total }) => {
+export const Items = ({ data }) => {
 
   const { products } = data.data;
 
@@ -18,13 +18,15 @@ export const Items = ({ data, total }) => {
 
   return (
     <>
-      <Row xs={1} md={2} lg={3} gap={2} className='g-0'>
+      <Row xs={1} md={2} lg={3} gap={2} className='g-0 item__list'>
         {products.map((item, index) => (
           <Item key={index} item={item} />
         ))}
       </Row>
 
-      <ResultsPagination total={data.data.total} />
+      {(data.data.total > 9) &&
+        <ResultsPagination total={data.data.total} />
+      }
     </>
   )
 }
