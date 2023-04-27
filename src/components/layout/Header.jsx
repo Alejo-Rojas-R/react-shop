@@ -13,7 +13,7 @@ export const Header = () => {
                     <Container fluid>
                         <Navbar.Brand>
                             <NavLink className='navbar-brand m-0' to='/'>
-                                <img alt='' src='/src/assets/shopping-basket-blue-clipart-md.png' width='30' height='30' className='d-inline-block align-top me-2' />
+                                <img alt='' src='/assets/shopping-basket-blue-clipart-md.png' width='30' height='30' className='d-inline-block align-top me-2' />
                                 MyShop
                             </NavLink>
                         </Navbar.Brand>
