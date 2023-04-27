@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { CategoriesList } from '../layout/CategoriesList';
 import { SearchInput } from '../layout/SearchInput';
-import { Accordion, Container, Image } from 'react-bootstrap';
+import { Stack, Container, Image } from 'react-bootstrap';
 
 export const HomePage = () => {
 
@@ -10,13 +10,11 @@ export const HomePage = () => {
             <h1 className='text-center mb-5'>MyShop</h1>
             <Image fluid src='src/assets/shopping-basket-blue-clipart-md.png' className='img__cart position-absolute z-n1 w-25' alt='background image' />
             <SearchInput />
-            <Accordion className='w-50 mt-3'>
-                <Accordion.Item eventKey="0">
-                    <Accordion.Header>Categories</Accordion.Header>
-                    <Accordion.Body><CategoriesList direction={'horizontal'} /></Accordion.Body>
-                </Accordion.Item>
-            </Accordion>
-
+            <Container className='mt-4'>
+                <Stack direction='horizontal' className='d-flex flex-wrap justify-content-center' gap={2}>
+                    <CategoriesList />
+                </Stack>
+            </Container>
         </Container>
     )
 }

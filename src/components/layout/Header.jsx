@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { SearchInput } from './SearchInput';
-import { NavDropdown, Navbar, Container, Nav } from 'react-bootstrap';
+import { NavDropdown, Navbar, Container, Nav, Stack } from 'react-bootstrap';
 import { CategoriesList } from './CategoriesList';
 
 export const Header = () => {
@@ -21,7 +21,11 @@ export const Header = () => {
                         <Navbar.Collapse >
                             <Nav>
                                 <NavDropdown title="Categories">
-                                    <CategoriesList direction={'vertical'} />
+                                    <Container>
+                                        <Stack direction='vertical' className='d-flex flex-wrap' gap={2}>
+                                            <CategoriesList />
+                                        </Stack>
+                                    </Container>
                                 </NavDropdown>
                             </Nav>
                         </Navbar.Collapse>

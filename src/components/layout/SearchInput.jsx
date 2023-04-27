@@ -5,7 +5,7 @@ export const SearchInput = () => {
 
     const refQueryInput = useRef();
     const [query, setQuery] = useState('');
-    const navigate  = useNavigate();
+    const navigate = useNavigate();
 
 
     const handleWriteSearch = () => {
@@ -14,12 +14,15 @@ export const SearchInput = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (query === '') return true;
+
         navigate(`/search?query=${query}`);
     }
 
     return (
         <form onSubmit={handleSubmit} className="d-flex justify-content-center">
-            <input className="form-control me-2" type="search" placeholder="Search" ref={refQueryInput} onChange={handleWriteSearch} />
+            <input className="form-control me-2" type="search" placeholder="Search" value={query} ref={refQueryInput} onChange={handleWriteSearch} />
             <button type='submit' className={`btn btn-primary ${query === "" ? "disabled" : ""}`} to={`/search?query=${query}`}>Search</button>
         </form>
     )

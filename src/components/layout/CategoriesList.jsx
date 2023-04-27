@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { Container, Stack, Spinner } from 'react-bootstrap';
 
-export const CategoriesList = ({direction}) => {
+export const CategoriesList = ({ direction }) => {
 
     // Get categories to be shown as badges below the search input
     const { data, loading } = useFetch('https://dummyjson.com/products/categories');
@@ -18,13 +18,9 @@ export const CategoriesList = ({direction}) => {
     }
 
     return (
-        <Container>
-            <Stack direction={direction} className='d-flex flex-wrap justify-content-center' gap={2}>
-                {data.map((item, index) => (
-                    <NavLink key={index} to={`/search?category=${item}`} className='link-underline link-underline-opacity-0 link-underline-opacity-75-hover'>{item}</NavLink>
-                ))}
-            </Stack>
-        </Container>
+        data.map((item, index) => (
+            <NavLink key={index} to={`/search?category=${item}`} className='link-underline link-underline-opacity-0 link-underline-opacity-75-hover'>{item}</NavLink>
+        ))
     );
 }
 
