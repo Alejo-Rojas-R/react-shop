@@ -5,10 +5,9 @@ import { Header } from '../layout/Header';
 import { useSearchParams } from 'react-router-dom';
 import { Footer } from '../layout/Footer';
 import { Cart } from '../layout/Cart.jsx';
-import { Container, Stack } from 'react-bootstrap';
 
 export const SearchPage = () => {
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
 
   const category = params.get('category') ?? '';
   const query = params.get('query') ?? '';

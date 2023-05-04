@@ -22,6 +22,11 @@ export const ItemPage = () => {
     );
   }
 
+  const formatUSD = Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
   const appliedDiscount = data.price - (data.price * (data.discountPercentage / 100));
 
   return (
@@ -36,9 +41,9 @@ export const ItemPage = () => {
             <Container className='rounded bg-white p-4'>
               <h1>{data.title}</h1>
               <hr />
-              <span className="opacity-50"><s>${data.price}</s></span>
+              <span className="opacity-50"><s>{formatUSD.format(data.price)}</s></span>
               <div className="d-flex align-items-center">
-                <h3 className="me-2">${appliedDiscount}</h3>
+                <h3 className="me-2">{formatUSD.format(appliedDiscount)}</h3>
                 <h6 className="text-danger">{data.discountPercentage}% OFF</h6>
               </div>
               <div className="d-flex align-items-center">
