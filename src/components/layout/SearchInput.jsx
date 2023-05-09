@@ -22,8 +22,8 @@ export const SearchInput = () => {
 
     return (
         <form onSubmit={handleSubmit} className="d-flex justify-content-center">
-            <input className="form-control me-2" type="search" placeholder="Search" value={query} ref={refQueryInput} onChange={handleWriteSearch} />
-            <button type='submit' className={`btn btn-primary ${query === "" ? "disabled" : ""}`} to={`/search?query=${query}`}>Search</button>
+            <input type="search" className="form-control me-2" placeholder="Search" value={query} ref={refQueryInput} onChange={handleWriteSearch} />
+            <button type='submit' className={`btn btn-primary ${query === "" ? "disabled" : ""}`} to={`/search?query=${query}`}><i className="bi bi-search"></i></button>
         </form>
     )
 }

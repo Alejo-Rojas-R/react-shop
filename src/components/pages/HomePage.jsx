@@ -12,7 +12,7 @@ export const HomePage = () => {
             <SearchInput />
             <Container className='mt-4'>
                 <Stack direction='horizontal' className='d-flex flex-wrap justify-content-center' gap={2}>
-                    <CategoriesList />
+                    <CategoriesList badges={true} />
                 </Stack>
             </Container>
         </Container>

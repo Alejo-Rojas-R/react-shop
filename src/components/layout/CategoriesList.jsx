@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { Container, Stack, Spinner } from 'react-bootstrap';
 
-export const CategoriesList = ({ direction }) => {
+export const CategoriesList = ({ badges }) => {
 
     // Get categories to be shown as badges below the search input
     const { data, loading } = useFetch('https://dummyjson.com/products/categories');

@@ -4,7 +4,6 @@ import { useFetch } from '../../hooks/useFetch'
 import { Header } from '../layout/Header';
 import { useSearchParams } from 'react-router-dom';
 import { Footer } from '../layout/Footer';
-import { Cart } from '../layout/Cart.jsx';
 
 export const SearchPage = () => {
   const [params] = useSearchParams();
@@ -31,7 +30,8 @@ export const SearchPage = () => {
             <Items data={data} />
           </div>
           <div className="col-md-2">
-            <Cart />
+            <div className='position-fixed'>
+            </div>
           </div>
         </div>
       </div>

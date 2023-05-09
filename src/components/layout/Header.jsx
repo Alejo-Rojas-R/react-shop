@@ -1,14 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { SearchInput } from './SearchInput';
-import { NavDropdown, Navbar, Container, Nav, Stack } from 'react-bootstrap';
+import { NavDropdown, Navbar, Container, Nav, Stack, Col } from 'react-bootstrap';
 import { CategoriesList } from './CategoriesList';
+import { CartButton } from './CartButton';
 
 export const Header = () => {
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
+        <nav className='navbar fixed-top navbar-expand-lg navbar-light bg-light d-flex justify-content-between position-sticky p-0'>
+            <Col xs={3}>
                 <Navbar expand="lg">
                     <Container fluid>
                         <Navbar.Brand>
@@ -31,9 +32,19 @@ export const Header = () => {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
+            </Col>
 
+            <Col xs={6}>
                 <SearchInput />
-            </div>
+            </Col>
+
+            <Col xs={2}>
+          
+            </Col>
+
+            <Col xs={1}>
+                <CartButton />
+            </Col>
         </nav>
     )
 }
