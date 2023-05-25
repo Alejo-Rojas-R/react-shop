@@ -3,6 +3,8 @@ import { RatingStars } from './RatingStars'
 import { NavLink } from 'react-router-dom'
 import { Card, Button, Row, Col, Badge } from 'react-bootstrap';
 import { CartCountContext } from '../../routes/Routing';
+import { NormalizeTitle } from '../../helpers/GeneralUseFunctions';
+import { NormalizeParagraph } from '../../helpers/GeneralUseFunctions';
 
 export const Item = ({ item }) => {
   const itemId = useRef('');
@@ -39,24 +41,25 @@ export const Item = ({ item }) => {
   const appliedDiscount = item.price - (item.price * (item.discountPercentage / 100));
 
   return (
-    <Card className='p-2 border-0'>
-      <Card className='item__item' id={`item_${item.id}`} ref={itemId}>
+    <Card className='p-3 border-0 bg-transparent'>
+      <Card className='item__item border-0 py-3' id={`item_${item.id}`} ref={itemId}>
         <NavLink to={`/product/${item.id}`} className='text-decoration-none link-dark'>
-          <Card.Header className='p-0 position-relative'>
-            <Card.Text as='h4' className='m-0 ms-3 mt-3 item__price position-absolute'><Badge bg='success' ref={itemPrice} data-price={appliedDiscount}>{formatUSD.format(appliedDiscount)}</Badge></Card.Text>
-            <Card.Img variant='top' className='cover' src={item.thumbnail} alt='Product Image' ref={itemThumb} />
+          <Card.Header className='p-0 border-0 position-relative bg-white'>
+            <Card.Text as='h4' className='m-0 ms-3 mt-3 item__price position-absolute'><Badge bg='info' className='fw-normal fw-semibold' ref={itemPrice} data-price={appliedDiscount}>{formatUSD.format(appliedDiscount)}</Badge></Card.Text>
+            <Card.Img variant='top' className='cover rounded-3' src={item.thumbnail} alt='' ref={itemThumb} />
           </Card.Header>
-          <Card.Body>
-            <Card.Title ref={itemTitle}>{item.title}</Card.Title>
-
-            <Card.Text>
-              {item.description}
+          <Card.Body className='pt-3 pb-0 px-0'>
+            <Card.Title ref={itemTitle}>
+              {NormalizeTitle(item.title)}
+            </Card.Title>
+            <Card.Text className='h-1'>
+              {NormalizeParagraph(item.description)}
             </Card.Text>
-            <Row>
-              <Col>
-                <Button onClick={handleCart}><i className='bi bi-cart-plus-fill'></i></Button>
+            <Row className='d-flex align-items-center'>
+              <Col className='pe-0'>
+                <Button onClick={handleCart} variant='outline-dark' className='rounded-pill'>Add to Cart</Button>
               </Col>
-              <Col className='d-flex align-items-end justify-content-end'>
+              <Col className='d-flex align-items-end justify-content-end ps-0'>
                 <RatingStars rating={item.rating} showRating={false} />
               </Col>
             </Row>

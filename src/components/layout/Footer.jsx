@@ -4,8 +4,8 @@ import { CategoriesList } from './CategoriesList'
 
 export const Footer = () => {
     return (
-        <Container className='footer bg-light p-4 mt-5 mw-100'>
-
+        <Container className='bg-light p-4 mw-100 d-flex justify-content-center'>
+            © The eShop. All rights reserved.
         </Container>
     )
 }

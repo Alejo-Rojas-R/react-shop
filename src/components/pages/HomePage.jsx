@@ -1,20 +1,47 @@
 import React, { useState } from 'react'
 import { CategoriesList } from '../layout/CategoriesList';
 import { SearchInput } from '../layout/SearchInput';
-import { Stack, Container, Image } from 'react-bootstrap';
+import { Stack, Container, Row, Col, Image } from 'react-bootstrap';
+import { CategoryPreview } from '../layout/CategoryPreview';
+import HeaderImage from '/assets/online-shopping-clipart-md.png';
 
 export const HomePage = () => {
 
     return (
-        <Container className='d-flex flex-column justify-content-center align-items-center vh-100 position-relative'>
-            <h1 className='text-center mb-5'>MyShop</h1>
-            <Image fluid src='/assets/shopping-basket-blue-clipart-md.png' className='img__cart position-absolute z-n1 w-25' alt='background image' />
-            <SearchInput />
-            <Container className='mt-4'>
-                <Stack direction='horizontal' className='d-flex flex-wrap justify-content-center' gap={2}>
-                    <CategoriesList badges={true} />
-                </Stack>
+        <>
+            {/* Search bar */}
+            <Container fluid='xl' className='p-4 bg-info bg-gradient rounded-3'>
+                <Row className='align-items-center'>
+                    <Col md className='w-100 mw-50 px-2 px-sm-5 pb-4 m-0 align-items-center'>
+                        <h3 className='mb-3'>With the <b><span className='text-white'>e</span>Shop</b> you'll find a user-friendly interface and intuitive navigation that make finding your desired items effortless.</h3>
+                        <p className=''>Dummy placeholder data taken from the <a target='_blank' className='text-white link-underline link-underline-opacity-0' href='https://dummyjson.com/'>dummyjson</a> API</p>
+                        <div className='w-75'>
+                            <SearchInput collapsible={false} variant={'dark'} />
+                        </div>
+                    </Col>
+                    <Col md className='d-flex justify-content-center'>
+                        <Image fluid className='px-5' src={HeaderImage} />
+                    </Col>
+                </Row>
             </Container>
-        </Container>
+
+            {/* Categories List */}
+            <Container fluid='lg' className='py-4'>
+                <Row>
+                    <Col>
+                        <CategoryPreview category={'laptops'} />
+                        <CategoryPreview category={'mens-watches'} />
+                        <CategoryPreview category={'womens-jewellery'} />
+
+                        {/* Categories List */}
+                        <h4 className='px-3 m-0'>More Categories</h4>
+                        <Stack direction='horizontal' className='d-flex flex-wrap justify-content-center py-3' gap={2}>
+                            <CategoriesList badges={true} />
+                        </Stack>
+                    </Col>
+                </Row>
+            </Container>
+
+        </>
     )
 }

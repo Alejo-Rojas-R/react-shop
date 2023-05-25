@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Items } from '../layout/Items'
 import { useFetch } from '../../hooks/useFetch'
-import { Header } from '../layout/Header';
 import { useSearchParams } from 'react-router-dom';
-import { Footer } from '../layout/Footer';
+import { Container, Row } from 'react-bootstrap';
 
 export const SearchPage = () => {
   const [params] = useSearchParams();
@@ -19,23 +18,10 @@ export const SearchPage = () => {
   const data = useFetch(itemsUrl);
 
   return (
-    <>
-      <Header />
-      <div className="container-fluid mt-3">
-        <div className="row">
-          <div className="col-md-2">
-
-          </div>
-          <div className="col-md-8">
-            <Items data={data} />
-          </div>
-          <div className="col-md-2">
-            <div className='position-fixed'>
-            </div>
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </>
+    <Container fluid='lg'>
+      <Row>
+        <Items data={data} />
+      </Row>
+    </Container>
   )
 }
